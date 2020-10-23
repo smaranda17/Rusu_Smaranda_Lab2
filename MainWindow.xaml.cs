@@ -24,5 +24,7 @@ namespace Rusu_Smaranda_Lab2
         {
             InitializeComponent();
         }
+            private DoughnutMachine myDoughnutMachine; 
+    }
     }
 }
