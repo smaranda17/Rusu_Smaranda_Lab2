@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Threading;
+using System.ComponentModel;
 
 namespace Rusu_Smaranda_Lab2
 {
-    class DoughnutMachine
+    class DoughnutMachine :Component
     {
         private DoughnutType mFlavor;
         public DoughnutType Flavor
@@ -19,22 +20,19 @@ namespace Rusu_Smaranda_Lab2
                 mFlavor = value;
             }
         }
-        
-        
-            private System.Collections.ArrayList mDoughnuts = new System.Collections.ArrayList();
-            public Doughnut this[int Index]
+        private System.Collections.ArrayList mDoughnuts = new System.Collections.ArrayList();
+        public Doughnut this[int Index]
+        {
+            get
             {
-                get
-                {
-                    return (Doughnut)mDoughnuts[Index];
+                return (Doughnut)mDoughnuts[Index];
 
-                }
-                set
-                {
-                    mDoughnuts[Index] = value;
-                }
             }
-        
+            set
+            {
+                mDoughnuts[Index] = value;
+            }
+        }
         public delegate void DoughnutCompleteDelegate();
         public event DoughnutCompleteDelegate DoughnutComplete;
         DispatcherTimer doughnutTimer;
@@ -113,4 +111,5 @@ namespace Rusu_Smaranda_Lab2
             mFlavor = aFlavor;
         }
     }
-}
+    
+ }
